@@ -1,6 +1,6 @@
 package com.url.shortner.service;
 
-import com.url.shortener.repository.UserRepository;
+import com.url.shortner.repository.UserRepository;
 import com.url.shortner.models.User;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

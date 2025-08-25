@@ -24,14 +24,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain)
             throws ServletException, IOException {
         try {
-            // Get JWT from request header
             String jwt = jwtTokenProvider.getJwtFromHeader(request);
 
             if (jwt != null && jwtTokenProvider.validateToken(jwt)) {
@@ -46,6 +44,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        filterChain.doFilter(request, response); // continue the filter chain
+
+        filterChain.doFilter(request, response);
     }
 }
