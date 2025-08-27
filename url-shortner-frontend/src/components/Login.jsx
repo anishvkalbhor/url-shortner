@@ -4,10 +4,12 @@ import TextField from "./TextField";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../api/api";
 import toast from "react-hot-toast";
+import { useStoreContext } from "../contextApi/ContextApi";
 
 const Login = () => {
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
+  const { setToken } = useStoreContext();
 
   const {
     register,
@@ -29,6 +31,7 @@ const Login = () => {
       const { data: response } = await api.post("/api/auth/public/login", data);
       // Store token in localstorage
       console.log(response.token);
+      setToken(response.token);
       localStorage.setItem("JWT_TOKEN", JSON.stringify(response.token));
       toast.success("Login Successful!");
       reset();

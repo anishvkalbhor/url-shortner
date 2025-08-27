@@ -1,11 +1,12 @@
-import React from 'react'
 import Card from './Card'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom';
+import { useStoreContext } from '../contextApi/ContextApi';
 
 const LandingPage = () => {
     const navigate = useNavigate();
-
+      const { token } = useStoreContext();
+      console.log("Token from landing page:" + token);
 
     const dashBoardNavigateHandler = () => {
 
@@ -31,7 +32,7 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="   flex-1 flex   justify-center w-full">
-            <img src="/public/images/img2.png" alt="" className="sm:w-[480px] w-[400px] object-cover rounded-md"/>
+            <img src="images/img2.png" alt="landingpageImage" className="sm:w-[480px] w-[400px] object-cover rounded-md"/>
         </div>
       </div>
       <div className="sm:pt-12 pt-7">
