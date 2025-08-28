@@ -11,10 +11,11 @@ const DashboardLayout = () => {
 
   // console.log(useFetchTotalClicks(token, onError));
 
-  const { isLoading, data: myShortenUrls, refetch } = useFetchMyShortUrls(
-    token,
-    onError
-  );
+  const {
+    isLoading,
+    data: myShortenUrls,
+    refetch,
+  } = useFetchMyShortUrls(token, onError);
 
   const { isLoading: loader, data: totalClicks } = useFetchTotalClicks(
     token,
@@ -53,21 +54,22 @@ const DashboardLayout = () => {
               Create a New Short URL
             </button>
           </div>
-
           <div className="">
-            {!isLoading && myShortenUrls.length === 0 ? (
+            {isLoading ? (
+              <p className="text-center py-8">Loading...</p>
+            ) : myShortenUrls?.length === 0 ? (
               <div className="flex justify-center pt-16">
-                  <div className="flex gap-2 items-center justify-center  py-6 sm:px-8 px-5 rounded-md   shadow-lg  bg-gray-50">
-                    <h1 className="text-slate-800 font-montserrat   sm:text-[18px] text-[14px] font-semibold mb-1 ">
-                      You haven't created any short link yet
-                    </h1>
-                    <FaLink className="text-blue-500 sm:text-xl text-sm " />
-                  </div>
+                <div className="flex gap-2 items-center justify-center py-6 sm:px-8 px-5 rounded-md shadow-lg bg-gray-50">
+                  <h1 className="text-slate-800 font-montserrat sm:text-[18px] text-[14px] font-semibold mb-1">
+                    You haven't created any short link yet
+                  </h1>
+                  <FaLink className="text-blue-500 sm:text-xl text-sm" />
+                </div>
               </div>
             ) : (
               <ShortenUrlList data={myShortenUrls} />
             )}
-          </div>
+          </div>{" "}
         </div>
       )}
 
