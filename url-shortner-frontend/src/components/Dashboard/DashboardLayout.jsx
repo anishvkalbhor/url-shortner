@@ -4,6 +4,7 @@ import { useStoreContext } from "../../contextApi/ContextApi";
 import { useFetchMyShortUrls, useFetchTotalClicks } from "../../hooks/useQuery";
 import ShortenPopUp from "./ShortenPopUp";
 import ShortenUrlList from "./ShortenUrlList";
+import Loader from "../Loader";
 
 const DashboardLayout = () => {
   const { token } = useStoreContext();
@@ -29,7 +30,7 @@ const DashboardLayout = () => {
   return (
     <div className="min-h-[calc(100vh-64px)] lg:px-14 sm:px-8 px-4">
       {loader ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <div className="lg:w-[90%] w-full mx-auto py-16">
           <div className="h-96 relative">

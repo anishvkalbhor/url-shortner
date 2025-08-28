@@ -71,13 +71,13 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
       >
         <div className="flex-1 sm:space-y-1 max-w-full overflow-x-auto overflow-y-hidden ">
           <div className="text-slate-900 pb-1 sm:pb-0   flex items-center gap-2 ">
-            <a href={`${import.meta.env.VITE_REACT_SUBDOMAIN}/${shortUrl}`}
+            {/* <a href={`${import.meta.env.VITE_REACT_SUBDOMAIN}/${shortUrl}`}
                 target="_blank"
                 className=" text-[17px]  font-montserrat font-[600] text-linkColor ">
                 {subDomain + "/" + `${shortUrl}`}
-            </a>
+            </a> */}
 
-            {/* <Link
+            <Link
               target="_"
               className="text-[17px]  font-montserrat font-[600] text-linkColor"
               to={
@@ -85,7 +85,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
               }
             >
               {subDomain + "/s/" + `${shortUrl}`}
-            </Link> */}
+            </Link>
             <FaExternalLinkAlt className="text-linkColor" />
           </div>
 
@@ -121,8 +121,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
           <CopyToClipboard
             onCopy={() => setIsCopied(true)}
             text={`${
-                import.meta.env.VITE_BACKEND_URL + "/" +`${shortUrl}`
-              // import.meta.env.VITE_REACT_FRONT_END_URL + "/s/" + `${shortUrl}`
+              import.meta.env.VITE_REACT_FRONT_END_URL + "/s/" + `${shortUrl}`
             }`}
           >
             <div className="flex cursor-pointer gap-1 items-center bg-btnColor py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white ">
@@ -162,7 +161,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                   wrapperClass=""
                   colors={["#306cce", "#72a1ed"]}
                 />
-                <p className="text-slate-700">Loading Analytics. Please Wait...</p>
+                <p className="text-slate-700">Please Wait...</p>
               </div>
             </div>
           ) : (

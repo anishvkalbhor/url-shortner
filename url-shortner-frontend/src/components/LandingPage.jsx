@@ -9,7 +9,7 @@ const LandingPage = () => {
       console.log("Token from landing page:" + token);
 
     const dashBoardNavigateHandler = () => {
-
+      navigate("/dashboard");
   };
   return (
     <div className="min-h-[calc(100vh-64px)]  lg:px-14 sm:px-8 px-4">
@@ -23,10 +23,14 @@ const LandingPage = () => {
             seconds. Simplify your sharing experience with Linklytics today.
           </p>
           <div className='flex items-center gap-3'>
-            <button className='bg-custom-gradient  w-40 text-white rounded-md  py-2'>
+            <button className='bg-custom-gradient  w-40 text-white rounded-md  py-2'
+            onClick={dashBoardNavigateHandler}
+            >
                 Manage Links
             </button>
-            <button className="border-btnColor border w-40 text-btnColor rounded-md  py-2 ">
+            <button className="border-btnColor border w-40 text-btnColor rounded-md  py-2 "
+            onClick={dashBoardNavigateHandler}  
+            >
                 Create Short Link
             </button>
           </div>
